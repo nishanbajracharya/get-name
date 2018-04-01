@@ -5,11 +5,13 @@ const getName = require('./index');
 describe('GET NAME', () => {
   it('should return full name', () => {
     const input = {
-
+      surName: 'Sparrow',
+      firstName: 'Jack',
     };
 
-    const expected = '';
+    const output = getName(input);
+    const expected = 'Jack Sparrow';
 
-    expect(getName(input)).to.equal(expected);
+    expect(output).to.equal(expected);
   });
 });
