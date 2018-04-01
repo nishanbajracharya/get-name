@@ -6,7 +6,7 @@ describe('GET NAME', () => {
   it('should return first name and surname', () => {
     const input = {
       firstName: 'Jack',
-      surName: 'Sparrow',
+      surName: 'Sparrow'
     };
 
     const output = getName(input);
@@ -19,12 +19,39 @@ describe('GET NAME', () => {
     const input = {
       title: 'Captain',
       firstName: 'Jack',
-      surName: 'Sparrow',
-    }
+      surName: 'Sparrow'
+    };
 
     const output = getName(input);
     const expected = 'Captain Jack Sparrow';
 
     expect(output).to.equal(expected);
-  })
+  });
+
+  it('should return name with suffix', () => {
+    const input = {
+      suffix: 'Jr.',
+      surName: 'Turner',
+      firstName: 'Bill',
+    };
+
+    const output = getName(input);
+    const expected = 'Bill Turner Jr.';
+
+    expect(output).to.equal(expected);
+  });
+
+  it('should return name with title and suffix', () => {
+    const input = {
+      suffix: 'Jr.',
+      surName: 'Turner',
+      firstName: 'Bill',
+      title: 'Bootstrap'
+    };
+
+    const output = getName(input);
+    const expected = 'Bootstrap Bill Turner Jr.';
+
+    expect(output).to.equal(expected);
+  });
 });
