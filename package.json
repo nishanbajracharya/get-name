@@ -1,5 +1,5 @@
 {
-  "name": "get-name",
+  "name": "write-name",
   "version": "0.1.0",
   "description": "A utility function to get formatted name",
   "main": "index.js",
@@ -8,18 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nishanbajracharya/get-name.git"
+    "url": "git+https://github.com/nishanbajracharya/write-name.git"
   },
   "keywords": [
-    "javascript",
-    "get-name"
+    "javascript"
   ],
   "author": "Nishan Bajracharya <nisbaj11@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nishanbajracharya/get-name/issues"
+    "url": "https://github.com/nishanbajracharya/write-name/issues"
   },
-  "homepage": "https://github.com/nishanbajracharya/get-name#readme",
+  "homepage": "https://github.com/nishanbajracharya/write-name#readme",
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.0.5"
