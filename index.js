@@ -1,8 +1,13 @@
 const getName = ({
+  title = '',
   surName = '',
   firstName = ''
 }) => {
-  return `${firstName} ${surName}`;
+  if (!title) {
+    return `${firstName} ${surName}`;
+  }
+
+  return `${title} ${firstName} ${surName}`;
 }
 
 module.exports = getName;
