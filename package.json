@@ -1,6 +1,6 @@
 {
   "name": "write-name",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A utility function to get formatted name",
   "main": "index.js",
   "scripts": {
