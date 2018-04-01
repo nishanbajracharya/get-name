@@ -12,21 +12,22 @@ const getName = ({
   title = '',
   suffix = '',
   surName = '',
-  firstName = ''
+  firstName = '',
+  suffixSeparator = ''
 }) => {
   if (!title && !suffix) {
     return `${firstName} ${surName}`;
   }
 
   if (!title) {
-    return `${firstName} ${surName} ${suffix}`;
+    return `${firstName} ${surName}${suffixSeparator} ${suffix}`;
   }
 
   if (!suffix) {
     return `${title} ${firstName} ${surName}`;
   }
 
-  return `${title} ${firstName} ${surName} ${suffix}`;
+  return `${title} ${firstName} ${surName}${suffixSeparator} ${suffix}`;
 }
 
 module.exports = getName;

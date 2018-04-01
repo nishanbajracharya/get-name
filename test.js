@@ -3,7 +3,7 @@ const expect = require('chai').expect;
 const getName = require('./index');
 
 describe('GET NAME', () => {
-  it('should return first name and surname', () => {
+  it('should return name', () => {
     const input = {
       firstName: 'Jack',
       surName: 'Sparrow'
@@ -51,6 +51,48 @@ describe('GET NAME', () => {
 
     const output = getName(input);
     const expected = 'Bootstrap Bill Turner Jr.';
+
+    expect(output).to.equal(expected);
+  });
+
+  it('should return name with suffix separator', () => {
+    const input = {
+      suffix: 'the Old.',
+      surName: 'Turner',
+      firstName: 'Bill',
+      suffixSeparator: ','
+    };
+
+    const output = getName(input);
+    const expected = 'Bill Turner, the Old.';
+
+    expect(output).to.equal(expected);
+  });
+
+  it('should return name with suffix separator and title', () => {
+    const input = {
+      suffix: 'the Old.',
+      surName: 'Turner',
+      firstName: 'Bill',
+      title: 'Bootstrap',
+      suffixSeparator: ','
+    };
+
+    const output = getName(input);
+    const expected = 'Bootstrap Bill Turner, the Old.';
+
+    expect(output).to.equal(expected);
+  });
+
+  it('should return name with suffix separator and no suffix', () => {
+    const input = {
+      surName: 'Turner',
+      firstName: 'Bill',
+      suffixSeparator: ','
+    };
+
+    const output = getName(input);
+    const expected = 'Bill Turner';
 
     expect(output).to.equal(expected);
   });
