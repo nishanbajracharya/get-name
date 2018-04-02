@@ -1,3 +1,13 @@
+const getBaseName = (firstName, middleName, surName) => {
+  const namesArray = [firstName, middleName, surName].filter(name => name);
+
+  if (namesArray.length) {
+    return namesArray.join(' ');
+  }
+
+  return '';
+};
+
 /**
  * Return formatted name
  *
@@ -13,21 +23,24 @@ const writeName = ({
   suffix = '',
   surName = '',
   firstName = '',
+  middleName = '',
   suffixSeparator = ''
 }) => {
+  const baseName = getBaseName(firstName, middleName, surName);
+
   if (!title && !suffix) {
-    return `${firstName} ${surName}`;
+    return baseName
   }
 
   if (!title) {
-    return `${firstName} ${surName}${suffixSeparator} ${suffix}`;
+    return `${baseName}${suffixSeparator} ${suffix}`;
   }
 
   if (!suffix) {
-    return `${title} ${firstName} ${surName}`;
+    return `${title} ${baseName}`;
   }
 
-  return `${title} ${firstName} ${surName}${suffixSeparator} ${suffix}`;
-}
+  return `${title} ${baseName}${suffixSeparator} ${suffix}`;
+};
 
 export default writeName;

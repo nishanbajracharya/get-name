@@ -110,4 +110,17 @@ describe('WRITE NAME', () => {
 
     expect(output).to.equal(expected);
   });
+
+  it('should return name with middlename', () => {
+    const input = {
+      firstName: 'Jack',
+      surName: 'Sparrow',
+      middleName: '"Johhny Depp"'
+    };
+
+    const output = writeName(input);
+    const expected = 'Jack "Johhny Depp" Sparrow';
+
+    expect(output).to.equal(expected);
+  });
 });
