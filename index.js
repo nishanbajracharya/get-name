@@ -35,21 +35,36 @@ const writeName = ({
   middleName = '',
   suffixSeparator = ''
 }) => {
-  const baseName = getBaseName(firstName, middleName, surName);
+  const nameConfig = {
+    title: title.trim(),
+    suffix: suffix.trim(),
+    surName: surName.trim(),
+    firstName: firstName.trim(),
+    middleName: middleName.trim(),
+    suffixSeparator: suffixSeparator.trim()
+  };
 
-  if (!title && !suffix) {
-    return baseName
+  const baseName = getBaseName(
+    nameConfig.firstName,
+    nameConfig.middleName,
+    nameConfig.surName
+  );
+
+  if (!nameConfig.title && !nameConfig.suffix) {
+    return baseName;
   }
 
-  if (!title) {
-    return `${baseName}${suffixSeparator} ${suffix}`;
+  if (!nameConfig.title) {
+    return `${baseName}${nameConfig.suffixSeparator} ${nameConfig.suffix}`;
   }
 
-  if (!suffix) {
-    return `${title} ${baseName}`;
+  if (!nameConfig.suffix) {
+    return `${nameConfig.title} ${baseName}`;
   }
 
-  return `${title} ${baseName}${suffixSeparator} ${suffix}`;
+  return `${nameConfig.title} ${baseName}${nameConfig.suffixSeparator} ${
+    nameConfig.suffix
+  }`;
 };
 
 export default writeName;
