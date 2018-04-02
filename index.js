@@ -8,7 +8,7 @@
  *
  * @returns {String}
  */
-const getName = ({
+const writeName = ({
   title = '',
   suffix = '',
   surName = '',
@@ -30,4 +30,4 @@ const getName = ({
   return `${title} ${firstName} ${surName}${suffixSeparator} ${suffix}`;
 }
 
-module.exports = getName;
+export default writeName;

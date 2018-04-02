@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-const getName = require('./index');
+const writeName = require('./lib').default;
 
 describe('GET NAME', () => {
   it('should return name', () => {
@@ -9,7 +9,7 @@ describe('GET NAME', () => {
       surName: 'Sparrow'
     };
 
-    const output = getName(input);
+    const output = writeName(input);
     const expected = 'Jack Sparrow';
 
     expect(output).to.equal(expected);
@@ -22,7 +22,7 @@ describe('GET NAME', () => {
       surName: 'Sparrow'
     };
 
-    const output = getName(input);
+    const output = writeName(input);
     const expected = 'Captain Jack Sparrow';
 
     expect(output).to.equal(expected);
@@ -35,7 +35,7 @@ describe('GET NAME', () => {
       firstName: 'Bill',
     };
 
-    const output = getName(input);
+    const output = writeName(input);
     const expected = 'Bill Turner Jr.';
 
     expect(output).to.equal(expected);
@@ -49,7 +49,7 @@ describe('GET NAME', () => {
       title: 'Bootstrap'
     };
 
-    const output = getName(input);
+    const output = writeName(input);
     const expected = 'Bootstrap Bill Turner Jr.';
 
     expect(output).to.equal(expected);
@@ -63,7 +63,7 @@ describe('GET NAME', () => {
       suffixSeparator: ','
     };
 
-    const output = getName(input);
+    const output = writeName(input);
     const expected = 'Bill Turner, the Old.';
 
     expect(output).to.equal(expected);
@@ -78,7 +78,7 @@ describe('GET NAME', () => {
       suffixSeparator: ','
     };
 
-    const output = getName(input);
+    const output = writeName(input);
     const expected = 'Bootstrap Bill Turner, the Old.';
 
     expect(output).to.equal(expected);
@@ -91,7 +91,7 @@ describe('GET NAME', () => {
       suffixSeparator: ','
     };
 
-    const output = getName(input);
+    const output = writeName(input);
     const expected = 'Bill Turner';
 
     expect(output).to.equal(expected);
