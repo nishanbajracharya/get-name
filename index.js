@@ -23,8 +23,12 @@ const getBaseName = (firstName, middleName, surName, lexicalOrder) => {
  *
  * @param {Object} config
  * @param {String} config.title
+ * @param {String} config.suffix
  * @param {String} config.surName
  * @param {String} config.firstName
+ * @param {String} config.middleName
+ * @param {Boolean} config.lexicalOrder
+ * @param {String} config.suffixSeparator
  *
  * @returns {String}
  */
@@ -34,8 +38,8 @@ const writeName = ({
   surName = '',
   firstName = '',
   middleName = '',
-  suffixSeparator = '',
   lexicalOrder = false,
+  suffixSeparator = '',
 }) => {
   const nameConfig = {
     lexicalOrder,
