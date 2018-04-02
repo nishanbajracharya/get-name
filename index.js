@@ -1,3 +1,12 @@
+/**
+ * Return a combination of firstname, middlename and surname
+ *
+ * @param {String} firstName
+ * @param {String} middleName
+ * @param {String} surName
+ *
+ * @returns {String}
+ */
 const getBaseName = (firstName, middleName, surName) => {
   const namesArray = [firstName, middleName, surName].filter(name => name);
 
