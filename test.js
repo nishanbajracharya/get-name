@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 
 const writeName = require('./lib').default;
 
-describe('GET NAME', () => {
+describe('WRITE NAME', () => {
   it('should return name', () => {
     const input = {
       firstName: 'Jack',
@@ -93,6 +93,20 @@ describe('GET NAME', () => {
 
     const output = writeName(input);
     const expected = 'Bill Turner';
+
+    expect(output).to.equal(expected);
+  });
+
+  it('should return name with title, suffix separator and no suffix', () => {
+    const input = {
+      surName: 'Turner',
+      firstName: 'Bill',
+      title: 'Bootstrap',
+      suffixSeparator: ','
+    };
+
+    const output = writeName(input);
+    const expected = 'Bootstrap Bill Turner';
 
     expect(output).to.equal(expected);
   });
