@@ -4,11 +4,12 @@
  * @param {String} firstName
  * @param {String} middleName
  * @param {String} surName
+ * @param {Boolean} lexicalOrder
  *
  * @returns {String}
  */
-const getBaseName = (firstName, middleName, surName) => {
-  const namesArray = [firstName, middleName, surName].filter(name => name);
+const getBaseName = (firstName, middleName, surName, lexicalOrder) => {
+  const namesArray = (lexicalOrder ? [surName ? `${surName},` : '', firstName, middleName] : [firstName, middleName, surName]).filter(name => name);
 
   if (namesArray.length) {
     return namesArray.join(' ');
@@ -33,9 +34,11 @@ const writeName = ({
   surName = '',
   firstName = '',
   middleName = '',
-  suffixSeparator = ''
+  suffixSeparator = '',
+  lexicalOrder = false,
 }) => {
   const nameConfig = {
+    lexicalOrder,
     title: title.trim(),
     suffix: suffix.trim(),
     surName: surName.trim(),
@@ -47,7 +50,8 @@ const writeName = ({
   const baseName = getBaseName(
     nameConfig.firstName,
     nameConfig.middleName,
-    nameConfig.surName
+    nameConfig.surName,
+    lexicalOrder
   );
 
   if (!nameConfig.title && !nameConfig.suffix) {

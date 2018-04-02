@@ -123,4 +123,18 @@ describe('WRITE NAME', () => {
 
     expect(output).to.equal(expected);
   });
+
+  it('should return name in lexical order', () => {
+    const input = {
+      lexicalOrder: true,
+      firstName: 'Justin',
+      middleName: 'Randall',
+      surName: 'Timberlake',
+    }
+
+    const output = writeName(input);
+    const expected = 'Timberlake, Justin Randall';
+
+    expect(output).to.equal(expected);
+  });
 });
